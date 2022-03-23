@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="page-header">Properties</h1>
+
+{% include 'flash_messages.html'%}
+
+<div class="individual">
+    <div class="images">
+        <img class = "property-images" src = "{{ url_for('get_images', filename=property.photo) }}" alt ="Property photos"> 
+    </div>
+    <div class="aside">
+        <p class="title">{{ property.property_title }}</p>
+        <p class="description">{{ property.description }}</p>
+      
+        <div class="center">
+        <p class="price">{{ property.price }}</p>
+        <p class="property_type">{{ property.property_type }}</p>
+        </div>
+
+         
+        <div class="propertyroom">
+        <p class="bedroom"><img src="/static/bed.png">{{ property.bedrooms }}</p>
+        <p class="bathroom"><img src="/static/bath.png">{{ property.bathrooms }}</p>
+        </div>
+      
+        <p class="location"><img src="/static/location.png">{{ property.location }}</p>
+
+        <button class="btn">Email the Realtor</button>
+    </div>    
+</div>
+
+{% endblock %}
